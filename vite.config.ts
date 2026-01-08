@@ -3,6 +3,10 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  define: {
+    // 這行非常重要，它能防止瀏覽器找不到 process 變數
+    'process.env': process.env
+  },
   build: {
     outDir: 'dist',
   }
